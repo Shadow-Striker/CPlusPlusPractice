@@ -1,16 +1,34 @@
-// PracticeProblemsProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Part B Task.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 
 int main()
 {
-	std::cout << "Hello World! \n This is\n Three lines. \n ";
-	std::string name = "Shadow Striker";
-	std::cout << "My name is " << name << "\n";
+	//1. Add Em Up
+	int firstNumber = 3872;
+	int secondNumber = 1234;
+	int sum = 0;
+	sum = firstNumber + secondNumber;
+	std::cout << firstNumber << " + " << secondNumber << "= " << sum << "\n\n";
 
-	std::cout << "What name?\n" << name << "\n";
-	return 0;
+	//2. Minutes to Seconds
+	int minutes = 1;
+	int seconds = 0;
+	int convert = 0;
+
+	seconds = minutes * 60;
+
+	std::cout << minutes << " minute(s) " << "= " << seconds << " seconds. \n";
+
+	//3. Rectangle Info
+	float perimeter = 0.0f;
+	float area = 0.0f;
+	float length = 0.0f;
+	float width = 0.0f;
+
+	perimeter = length + width;
+	area = length * width;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
