@@ -1,19 +1,35 @@
-// PracticeProblemsProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// PartG_Functions.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
 #include <string>
 
+void HelloWorld();
+bool SwearWordChecker();
+
+float GetRectangleArea(float _width, float _height);
+float rectArea = 0.0f;
+std::string swearWord = "annoying";
+std::string message = "This is annoying";
+
 int main()
 {
-	std::cout << "Hello World! \n This is\n Three lines. \n ";
-	std::string name = "Shadow Striker";
-	std::cout << "My name is " << name << "\n";
-
-	std::cout << "What name?\n" << name << "\n";
-	return 0;
+	HelloWorld();
+	rectArea = GetRectangleArea(3.0f, 4.0f);
+	std::cout << "Rectangle Area = " << rectArea;
 }
 
+void HelloWorld()
+{
+	std::cout << "Hello World!\n";
+}
+
+float GetRectangleArea(float _width, float _height)
+{
+	float area = _width * _height;
+
+	return area;
+}
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
