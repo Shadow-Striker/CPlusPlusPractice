@@ -33,13 +33,14 @@ int main()
 	int range = maxNumber - minNumber;
 	char playAgainAnswer = 'Y';
 
-	randomNumber = ChooseRandomNumber( minNumber, range);
+	//Displays game rules
 	PrintRulesMessage();
 
-	//Asks for guess while guess is incorrect.
+	//Asks for guess while guess while play again answer is Y.
 
 	while (playAgainAnswer == 'Y')
 	{
+		randomNumber = ChooseRandomNumber(minNumber, range);
 		while (guess != randomNumber)
 		{
 			guess = GuessNumber(maxNumber, minNumber, guess);
@@ -48,40 +49,24 @@ int main()
 			{
 				std::cout << "Your guess was too high.\n";
 			}
+			//guess is too low
 			else if (guess < randomNumber)
 			{
 				std::cout << "Your guess was too low. \n";
 			}
+			//Increases number of guesses made
 			guessAmount++;
 		}
 		std::cout << "\n You guessed correctly! The number was: " << randomNumber;
 		std::cout << "\n You guessed a total of " << guessAmount << " time(s).";
 		std::cout << "\n\n Would like to play again? Type 'y' or 'n'\n";
+		
+		//Recieve input for if the player wants to play again.
 		playAgainAnswer = GetPlayAgainAnswer();
 
 		if (playAgainAnswer == 'Y')
 		{
-			randomNumber = ChooseRandomNumber(minNumber, range);
 			guess = 0;
-			//Asks for guess while guess is incorrect.
-			while (guess != randomNumber)
-			{
-				guess = GuessNumber(maxNumber, minNumber, guess);
-				//Guess is too high
-				if (guess > randomNumber)
-				{
-					std::cout << "Your guess was too high.\n";
-				}
-				else if (guess < randomNumber)
-				{
-					std::cout << "Your guess was too low. \n";
-				}
-				guessAmount++;
-			}
-			std::cout << "\n You guessed correctly! The number was: " << randomNumber;
-			std::cout << "\n You guessed a total of " << guessAmount << " time(s).";
-			std::cout << "\n\n Would like to play again? Type 'y' or 'n'\n";
-			playAgainAnswer = GetPlayAgainAnswer();
 		}
 		else if (playAgainAnswer == 'N')
 		{
