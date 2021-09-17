@@ -1,11 +1,147 @@
 // GuessTheNumber.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+/*The game will choose a random number in secret. The player will be prompted to
+guess numbers until they guess the correct one. The game will indicate if the guess
+is too high or too low. It will also track how many guesses it takes to reach the
+correct answer. Once the correct number has been guessed, the game will indicate
+how many guesses it took, and ask if the player wants to play again. If the player
+says yes, the game will start again from the beginning.*/
+
 
 #include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <time.h>
+#include <cctype>
+
+int ChooseRandomNumber(int _minNumber, int _range);
+int GuessNumber(int _maxNumber, int _minNumber, int _guess);
+void PrintRulesMessage();
+char GetPlayAgainAnswer();
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	//int totalRandom = std::rand();
+	//Seeds the psuedo random number generator used by std::rand() with the value seed.
+	//time(NULL) in this case.
+	std::srand(time(NULL));
+	int randomNumber = 0;
+	int guess = 0;
+	int guessAmount = 0;
+	int minNumber = 1;
+	int maxNumber = 50;
+	int range = maxNumber - minNumber;
+	char playAgainAnswer = 'Y';
+
+	randomNumber = ChooseRandomNumber( minNumber, range);
+	PrintRulesMessage();
+
+	//Asks for guess while guess is incorrect.
+
+	while (playAgainAnswer == 'Y')
+	{
+		while (guess != randomNumber)
+		{
+			guess = GuessNumber(maxNumber, minNumber, guess);
+			//Guess is too high
+			if (guess > randomNumber)
+			{
+				std::cout << "Your guess was too high.\n";
+			}
+			else if (guess < randomNumber)
+			{
+				std::cout << "Your guess was too low. \n";
+			}
+			guessAmount++;
+		}
+		std::cout << "\n You guessed correctly! The number was: " << randomNumber;
+		std::cout << "\n You guessed a total of " << guessAmount << " time(s).";
+		std::cout << "\n\n Would like to play again? Type 'y' or 'n'\n";
+		playAgainAnswer = GetPlayAgainAnswer();
+
+		if (playAgainAnswer == 'Y')
+		{
+			randomNumber = ChooseRandomNumber(minNumber, range);
+			guess = 0;
+			//Asks for guess while guess is incorrect.
+			while (guess != randomNumber)
+			{
+				guess = GuessNumber(maxNumber, minNumber, guess);
+				//Guess is too high
+				if (guess > randomNumber)
+				{
+					std::cout << "Your guess was too high.\n";
+				}
+				else if (guess < randomNumber)
+				{
+					std::cout << "Your guess was too low. \n";
+				}
+				guessAmount++;
+			}
+			std::cout << "\n You guessed correctly! The number was: " << randomNumber;
+			std::cout << "\n You guessed a total of " << guessAmount << " time(s).";
+			std::cout << "\n\n Would like to play again? Type 'y' or 'n'\n";
+			playAgainAnswer = GetPlayAgainAnswer();
+		}
+		else if (playAgainAnswer == 'N')
+		{
+			std::cout << "You have ended the game.";
+			return 0;
+		}
+	}
+}
+
+int ChooseRandomNumber(int _minNumber, int _range)
+{
+	int randomRange = std::rand() % _range;
+    int newRandomNumber = _minNumber + randomRange;
+	return newRandomNumber;
+}
+
+int GuessNumber(int _maxNumber, int _minNumber, int _guess)
+{
+	std::cout << "\n Please type your guess. (The number is between " << _minNumber << " and " << _maxNumber << ")\n";
+	std::cin >> _guess;
+
+	//Ask for new guess while input contains symbols or letters.
+	//std::cin.fail() means there was an input error.
+	while(std::cin.fail())
+	{
+		//Clears the error state
+		std::cin.clear();
+		//Ignores the rest of the line after the error has occured and skips to the next line.
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Your guess must not include letters or symbols.";
+		std::cout << "\n Please type your guess. (The number is between " << _minNumber << " and " << _maxNumber << ")\n";
+		std::cin >> _guess;
+	}
+		return _guess;
+}
+
+
+void PrintRulesMessage()
+{
+	std::cout << "Welcome to the Guess The Number game. \n";
+	std::cout << "A random number has been chosen. \n";
+	std::cout << "You must attempt to guess the random number. \n";
+}
+
+char GetPlayAgainAnswer()
+{
+	char newPlayAgainAnswer = ' ';
+	std::cin >> newPlayAgainAnswer;
+
+	while (std::cin.fail())
+	{
+		//Clears the error state
+		std::cin.clear();
+		//Ignores the rest of the line after the error has occured and skips to the next line.
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Your answer must be either 'Y' or 'N' (Not including the ' ')\n";
+		std::cin >> newPlayAgainAnswer;
+	}
+	newPlayAgainAnswer = std::toupper(newPlayAgainAnswer);
+	return newPlayAgainAnswer;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

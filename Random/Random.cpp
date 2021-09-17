@@ -19,9 +19,6 @@ int main()
 	int seededRandom = std::rand();
 	int minScore = 0;
 	int maxScore = 0;
-	int range = 0;
-	int randomRange = 0;
-	int finalResult;
 
 	std::cout << "Please enter a minimum score. ";
 	std::cin >> minScore;
