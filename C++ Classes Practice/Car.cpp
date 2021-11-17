@@ -69,6 +69,11 @@ void Car::Drive(int _milesToDrive)
 	//std::cout << "Miles per gallon: " << milesPerGallon << "\n";
 	mileage += _milesToDrive;
 	//std::cout << "Mileage: " << mileage << "\n";
-	petrolLevel = milesPerGallon - _milesToDrive;
+	petrolLevel = milesPerGallon / _milesToDrive;
 	//std::cout << "Petrol Level: " << petrolLevel << "\n\n";
+}
+
+void Car::TestDrive(Car &car)
+{
+	car.Drive(3);
 }

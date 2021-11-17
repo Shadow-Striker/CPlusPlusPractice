@@ -43,6 +43,8 @@ public:
 	void Print();
 	void Drive(int _milesToDrive);
 
+	void TestDrive(Car& car);
+
 	std::string make;
 	std::string model;
 	int noOfDoors;

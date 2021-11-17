@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Car.h"
+#include "Driver.h"
+#include "Garage.h"
 
 int main()
 {
@@ -15,30 +18,48 @@ int main()
 	Car car5("Worst Company", "Worst Car");
 	Car car6("Mediocre Company", "Mediocre Car");
 
+	Car car7("a","a");
+
+	Car* car1Ptr = nullptr;
+	Car* car2Ptr = nullptr;
+	car1Ptr = &car1;
+	car2Ptr = &car2;
+	Driver driver1(car1Ptr);
+	std::vector<Car> content;
+	Garage garage1(content);
+	garage1.Park(car1Ptr);
+    garage1.Park(car2Ptr);
+	garage1.Print();
+
 	std::cout << "Car values before driving: \n";
 	car1.Print();
 	car2.Print();
 	car3.Print();
-	car4.Print();
-	car5.Print();
-	car6.Print();
+
 
 	car1.Drive(30);
 	car2.Drive(50);
 	car3.Drive(20);
-	car4.Drive(60);
-	car5.Drive(20);
-	car6.Drive(100);
+
 
 	std::cout << "Car values after driving: \n";
 
 	car1.Print();
 	car2.Print();
 	car3.Print();
-	car4.Print();
-	car5.Print();
-	car6.Print();
-    std::cout << "Hello World!\n";
+
+
+	std::cout << "Car values before test driving: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+	car1.TestDrive(car1);
+	std::cout << "\nCar values after test driving: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+
+	std::cout << "Car values before driver drives: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+	driver1.Drive(5);
+	std::cout << "Car values after driver drives: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.petrolLevel;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
