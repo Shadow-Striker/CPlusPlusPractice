@@ -9,8 +9,9 @@ void Garage::Print()
 {
 	for (int i = 0; i < content.size(); ++i)
 	{
-		std::cout << "Make " << content[i]-> make << "\n";
-		std::cout << "Model " << content[i] -> model << "\n";
+		//std::cout << "Make " << content[i]-> make << "\n";
+		//std::cout << "Model " << content[i] -> model << "\n";
+		content[i]->Print();
 	}
 
 }
