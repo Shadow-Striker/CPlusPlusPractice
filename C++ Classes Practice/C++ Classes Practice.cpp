@@ -49,17 +49,20 @@ int main()
 	car3.Print();
 
 
-	std::cout << "Car values before test driving: \n" << "Mileage: " << car1.mileage;
-	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+	//std::cout << "Car values before test driving: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.GetPetrolLevel();
 	car1.TestDrive(car1);
-	std::cout << "\nCar values after test driving: \n" << "Mileage: " << car1.mileage;
-	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+	//std::cout << "\nCar values after test driving: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.GetPetrolLevel();
 
-	std::cout << "Car values before driver drives: \n" << "Mileage: " << car1.mileage;
-	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+	//std::cout << "Car values before driver drives: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.GetPetrolLevel();
 	driver1.Drive(5);
-	std::cout << "Car values after driver drives: \n" << "Mileage: " << car1.mileage;
-	std::cout << "\nPetrol Level: " << car1.petrolLevel;
+	//std::cout << "Car values after driver drives: \n" << "Mileage: " << car1.mileage;
+	std::cout << "\nPetrol Level: " << car1.GetPetrolLevel();
+
+	car1.SetPetrolLevel(3);
+	std::cout << "Car after modifying petrol level with getter: \n Petrol Level : " << car1.GetPetrolLevel();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -53,4 +53,8 @@ private:
 	int mileage;
 	int milesPerGallon;
 	int petrolLevel;
+
+public:
+	int GetPetrolLevel();
+	void SetPetrolLevel(int _petrolLevel);
 };

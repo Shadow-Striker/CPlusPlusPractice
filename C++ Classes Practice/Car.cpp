@@ -66,14 +66,23 @@ void Car::Print()
 
 void Car::Drive(int _milesToDrive)
 {
-	//std::cout << "Miles per gallon: " << milesPerGallon << "\n";
+	std::cout << "\nMileage before test driving: " << mileage;
 	mileage += _milesToDrive;
-	//std::cout << "Mileage: " << mileage << "\n";
 	petrolLevel = milesPerGallon / _milesToDrive;
-	//std::cout << "Petrol Level: " << petrolLevel << "\n\n";
+	std::cout << "\nMileage after test driving: " << mileage;
 }
 
 void Car::TestDrive(Car &car)
 {
 	car.Drive(3);
+}
+
+int Car::GetPetrolLevel()
+{
+	return petrolLevel;
+}
+
+void Car::SetPetrolLevel(int _petrolLevel)
+{
+	petrolLevel = _petrolLevel;
 }
