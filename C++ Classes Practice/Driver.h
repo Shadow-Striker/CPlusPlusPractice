@@ -11,6 +11,7 @@ public:
 
 	void Drive(int _milesToDrive);
 
+private:
 	Car* car;
 	int milesToDrive;
 };

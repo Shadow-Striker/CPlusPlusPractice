@@ -19,7 +19,14 @@ void Garage::Park(Car* _carPtr)
 {
 }
 
-/*void Garage::Exit(Car* _carPtr)
+void Garage::Exit(Car* _carPtr)
 {
-	//content.erase(0);
-}*/
+	for (int i = 0; i < content.size(); ++i)
+	{
+		if (content[i] == _carPtr)
+		{
+			content.erase(content.begin() + i);
+			break;
+		}
+	}
+}

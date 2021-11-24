@@ -45,6 +45,8 @@ public:
 
 	void TestDrive(Car& car);
 
+private:
+
 	std::string make;
 	std::string model;
 	int noOfDoors;
