@@ -37,7 +37,7 @@ public:
 	
 	//Constructors
 	Car();
-	Car(std::string _make, std::string _model, int _noOfDoors, int _mileage, int _milesPerGallon, int _petrolLevel);
+	Car(std::string _make, std::string _model, int _noOfDoors, int _mileage, int _milesPerGallon, int _petrolLevel, int _petrolTankSize);
 	Car(std::string _make, std::string _model);
 
 	void Print();
@@ -53,6 +53,7 @@ private:
 	int mileage;
 	int milesPerGallon;
 	int petrolLevel;
+	int petrolTankSize;
 
 public:
 	int GetPetrolLevel();

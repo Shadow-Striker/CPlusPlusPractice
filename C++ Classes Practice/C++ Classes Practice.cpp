@@ -10,9 +10,9 @@
 
 int main()
 {
-	Car car1("Toyota", "supra", 3, 60, 50, 10);
-	Car car2("Cool Company", "Cool Car", 3, 20, 80, 10);
-	Car car3("Bad Company", "Bad car", 5, 100, 30, 10);
+	Car car1("Toyota", "supra", 3, 60, 50, 10, 30);
+	Car car2("Cool Company", "Cool Car", 3, 20, 80, 10, 30);
+	Car car3("Bad Company", "Bad car", 5, 100, 30, 10, 30);
 
 	Car car4("Best Company", "Best Car");
 	Car car5("Worst Company", "Worst Car");

@@ -10,12 +10,13 @@ Car::Car()
 	, mileage(0)
 	, milesPerGallon(0)
 	, petrolLevel(0)
+	, petrolTankSize(0)
 {
 
 }
 
 //From Car.h (constructor with values)
-Car::Car(std::string _make, std::string _model, int _noOfDoors, int _mileage, int _milesPerGallon, int _petrolLevel)
+Car::Car(std::string _make, std::string _model, int _noOfDoors, int _mileage, int _milesPerGallon, int _petrolLevel, int _petrolTankSize)
 
 	: make(_make)
 	, model(_model)
@@ -23,6 +24,7 @@ Car::Car(std::string _make, std::string _model, int _noOfDoors, int _mileage, in
 	, mileage(_mileage)
 	, milesPerGallon(_milesPerGallon)
 	, petrolLevel(_petrolLevel)
+	, petrolTankSize(_petrolTankSize)
 {
 
 }
@@ -32,6 +34,7 @@ Car::Car(std::string _make, std::string _model)
 	, model(_model)
 {
 	mileage = 60;
+	petrolTankSize = 50;
 
 	if (_make == "Best Company")
 	{
